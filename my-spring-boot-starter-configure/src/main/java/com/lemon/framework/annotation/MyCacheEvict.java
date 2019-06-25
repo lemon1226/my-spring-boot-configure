@@ -1,4 +1,4 @@
-package com.lemon.springframework.annotation;
+package com.lemon.framework.annotation;
 
 import org.springframework.cache.annotation.CacheEvict;
 import org.springframework.core.annotation.AliasFor;
