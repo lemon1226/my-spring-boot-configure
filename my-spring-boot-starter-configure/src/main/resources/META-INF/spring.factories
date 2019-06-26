@@ -1,3 +1,4 @@
 org.springframework.boot.autoconfigure.EnableAutoConfiguration=\
 com.lemon.autoconfigure.redis.MyRedisAutoConfiguration,\
+com.lemon.autoconfigure.cache.MyCacheConfiguration,\
 com.lemon.autoconfigure.web.MyWebAutoConfiguration
