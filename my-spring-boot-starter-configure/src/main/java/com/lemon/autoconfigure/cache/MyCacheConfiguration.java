@@ -36,6 +36,11 @@ public class MyCacheConfiguration {
                     String newKey = myCacheable != null? myCacheable.newKey() : myCacheEvict.newKey();
 
                     Parameter[] parameters = method.getParameters();
+
+                    if(parameters.length == 0){
+                        return "all";
+                    }
+
                     StandardEvaluationContext context = new StandardEvaluationContext();
 
                     for (int i = 0; i< parameters.length; i++) {
