@@ -3,6 +3,8 @@ package com.lemon.autoconfigure.web;
 import org.springframework.boot.autoconfigure.condition.ConditionalOnWebApplication;
 import org.springframework.context.ApplicationContext;
 import org.springframework.context.annotation.Configuration;
+import org.springframework.format.FormatterRegistry;
+import org.springframework.format.datetime.DateFormatter;
 import org.springframework.web.servlet.HandlerInterceptor;
 import org.springframework.web.servlet.config.annotation.InterceptorRegistry;
 import org.springframework.web.servlet.config.annotation.WebMvcConfigurer;
@@ -34,6 +36,11 @@ public class MyWebAutoConfiguration {
             handlerInterceptorMap.entrySet().stream().map(map -> map.getValue()).forEach(item -> {
                 registry.addInterceptor(item);
             });
+        }
+
+        @Override
+        public void addFormatters(FormatterRegistry registry) {
+            registry.addFormatter(new DateFormatter("yyyy-MM-dd HH:mm:ss"));
         }
     }
 }
