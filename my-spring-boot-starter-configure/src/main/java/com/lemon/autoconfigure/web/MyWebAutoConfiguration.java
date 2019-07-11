@@ -37,10 +37,5 @@ public class MyWebAutoConfiguration {
                 registry.addInterceptor(item);
             });
         }
-
-        @Override
-        public void addFormatters(FormatterRegistry registry) {
-            registry.addFormatter(new DateFormatter("yyyy-MM-dd HH:mm:ss"));
-        }
     }
 }
