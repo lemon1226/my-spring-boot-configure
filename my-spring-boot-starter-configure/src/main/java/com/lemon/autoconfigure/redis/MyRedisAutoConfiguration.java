@@ -3,6 +3,7 @@ package com.lemon.autoconfigure.redis;
 import com.fasterxml.jackson.annotation.JsonAutoDetect;
 import com.fasterxml.jackson.annotation.PropertyAccessor;
 import com.fasterxml.jackson.databind.ObjectMapper;
+import com.lemon.framework.utils.RedisUtil;
 import org.springframework.boot.autoconfigure.AutoConfigureBefore;
 import org.springframework.boot.autoconfigure.condition.ConditionalOnClass;
 import org.springframework.boot.autoconfigure.data.redis.RedisAutoConfiguration;
@@ -78,5 +79,10 @@ public class MyRedisAutoConfiguration {
                 .cacheDefaults(config)
                 .build();
         return cacheManager;
+    }
+
+    @Bean
+    public RedisUtil getRedisUtil(){
+        return new RedisUtil();
     }
 }
