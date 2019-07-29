@@ -21,5 +21,6 @@ public class MyWebFilter implements Filter {
     @Override
     public void doFilter(ServletRequest servletRequest, ServletResponse servletResponse, FilterChain filterChain) throws IOException, ServletException {
         RequestContext.setRequest((HttpServletRequest) servletRequest);
+        filterChain.doFilter(servletRequest, servletResponse);
     }
 }
