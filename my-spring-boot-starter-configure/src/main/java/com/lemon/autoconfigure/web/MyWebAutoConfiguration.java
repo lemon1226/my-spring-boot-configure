@@ -1,10 +1,10 @@
 package com.lemon.autoconfigure.web;
 
+import com.lemon.framework.filter.MyWebFilter;
 import org.springframework.boot.autoconfigure.condition.ConditionalOnWebApplication;
 import org.springframework.context.ApplicationContext;
+import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
-import org.springframework.format.FormatterRegistry;
-import org.springframework.format.datetime.DateFormatter;
 import org.springframework.web.servlet.HandlerInterceptor;
 import org.springframework.web.servlet.config.annotation.InterceptorRegistry;
 import org.springframework.web.servlet.config.annotation.WebMvcConfigurer;
@@ -37,5 +37,10 @@ public class MyWebAutoConfiguration {
                 registry.addInterceptor(item);
             });
         }
+    }
+
+    @Bean
+    public MyWebFilter getMyWebFilter(){
+        return new MyWebFilter();
     }
 }
