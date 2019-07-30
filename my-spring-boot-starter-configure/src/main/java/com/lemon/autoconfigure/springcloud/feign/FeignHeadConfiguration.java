@@ -62,4 +62,9 @@ public class FeignHeadConfiguration {
             }
         };
     }
+
+    @Bean
+    public FeignHystrixConcurrencyStrategy getFeignHystrixConcurrencyStrategy(){
+        return new FeignHystrixConcurrencyStrategy();
+    }
 }
