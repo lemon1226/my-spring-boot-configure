@@ -17,6 +17,8 @@ public class RequestContext {
 
     private static ThreadLocal<HttpServletRequest> localRequest = new ThreadLocal<HttpServletRequest>();
 
+    private static final String SESSION_USER_KEY = "userInfo";
+
     public static void setRequest(HttpServletRequest request) {
         localRequest.set(request);
     }
@@ -59,5 +61,13 @@ public class RequestContext {
 
     public static Object getSession(String key){
         return getLocalRequest().getSession().getAttribute(key);
+    }
+
+    public static void setSessionUser(Object value){
+        setSession(SESSION_USER_KEY, value);
+    }
+
+    public static Object getSessionUser(){
+        return getSession(SESSION_USER_KEY);
     }
 }
