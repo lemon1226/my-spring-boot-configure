@@ -11,6 +11,7 @@ import org.springframework.web.context.request.RequestContextHolder;
 import org.springframework.web.context.request.ServletRequestAttributes;
 import javax.servlet.http.Cookie;
 import javax.servlet.http.HttpServletRequest;
+import java.util.Base64;
 import java.util.Enumeration;
 
 /**
@@ -35,7 +36,12 @@ public class FeignHeadConfiguration {
                 Cookie[] cookies = request.getCookies();
                 if (cookies != null && cookies.length > 0) {
                     for (Cookie cookie : cookies) {
-                        requestTemplate.header(cookie.getName(), cookie.getValue());
+                        if("SESSION".equals(cookie.getName())){
+                            byte[] decodedCookieBytes = Base64.getDecoder().decode(cookie.getValue());
+                            requestTemplate.header(cookie.getName(), new String(decodedCookieBytes));
+                        }else{
+                            requestTemplate.header(cookie.getName(), cookie.getValue());
+                        }
                     }
                 } else {
                     logger.warn("FeignHeadConfiguration", "获取Cookie失败！");
