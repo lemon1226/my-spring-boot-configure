@@ -52,4 +52,12 @@ public class RequestContext {
         }
         return biFunction.apply(token, secret);
     }
+
+    public static void setSession(String key, Object value){
+        getLocalRequest().getSession().setAttribute(key, value);
+    }
+
+    public static Object setSession(String key){
+        return getLocalRequest().getSession().getAttribute(key);
+    }
 }
