@@ -57,7 +57,7 @@ public class RequestContext {
         getLocalRequest().getSession().setAttribute(key, value);
     }
 
-    public static Object setSession(String key){
+    public static Object getSession(String key){
         return getLocalRequest().getSession().getAttribute(key);
     }
 }
