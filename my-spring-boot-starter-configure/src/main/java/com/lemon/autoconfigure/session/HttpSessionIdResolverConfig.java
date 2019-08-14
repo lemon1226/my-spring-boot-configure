@@ -18,7 +18,7 @@ import org.springframework.session.web.http.HeaderHttpSessionIdResolver;
 @ConditionalOnProperty("mySession.name")
 public class HttpSessionIdResolverConfig {
 
-    @Value("mySession.name")
+    @Value("${mySession.name}")
     private String sessionName;
 
     @Bean
